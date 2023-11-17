@@ -2,10 +2,10 @@
 
 const express = require('express');
 const http = require('http');
-const socketIo = require('socket.io');
-
 const app = express();
 const server = http.createServer(app);
+
+const socketIo = require('socket.io');
 const io = socketIo(server);
 
 app.use(express.static('public'));
@@ -33,6 +33,7 @@ io.on('connection', (socket) => {
         
         if ((Object.keys(players).length) > 1) {
             io.emit('move', data); // Emit to all clients
+            console.log("playermove");
         } else {
             data = "wait until the other player connects";
             io.emit("wait", data);
