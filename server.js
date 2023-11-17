@@ -15,6 +15,8 @@ let players = {}; // Stores player data
 
 io.on('connection', (socket) => {
     // Assign player number
+    console.log("ws connection started: " + socket);
+
     let playerNumber = Object.keys(players).length + 1;
     
     if (playerNumber > 2) playerNumber = null; // Limit to 2 players

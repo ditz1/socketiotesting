@@ -47,6 +47,7 @@ socket.on('playerNumber', (number) => {
 });
 
 document.addEventListener('keydown', (event) => {
+    
     if (myPlayerNumber === 1) {
         if (event.key === 'a') {
             socket.emit('move', { direction: 'left' });
@@ -57,10 +58,10 @@ document.addEventListener('keydown', (event) => {
     }
 
     if (myPlayerNumber === 2) {
-        if (event.key === 'ArrowLeft') {
+        if (event.key === 'a') {
             socket.emit('move', { direction: 'left' });
         }
-        if (event.key === 'ArrowRight') {
+        if (event.key === 'd') {
             socket.emit('move', { direction: 'right' });
         }
     }
